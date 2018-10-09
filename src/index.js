@@ -103,12 +103,12 @@ export default class Sound extends React.Component {
     }
   }
 
-  updateSound(sound, prevProps = {}) {
+  async updateSound(sound, prevProps = {}) {
     if (!sound) { return; }
 
     if (this.props.playStatus === playStatuses.PLAYING) {
       if (sound.playState === 0) {
-        sound.play();
+        let play = await sound.play();
       }
 
       if (sound.paused) {
